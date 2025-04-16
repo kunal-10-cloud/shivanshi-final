@@ -1,0 +1,34 @@
+{
+  "images": [
+    {
+      "id": 1,
+      "filename": "birthday-celebration.jpg",
+      "description": "Birthday celebration setup with balloons and decorations",
+      "alt": "Birthday celebration at Shivanshi Food Point"
+    },
+    {
+      "id": 2,
+      "filename": "birthday-family.jpg",
+      "description": "Family celebrating birthday with cake cutting",
+      "alt": "Family celebration at restaurant"
+    },
+    {
+      "id": 3,
+      "filename": "owner.jpg",
+      "description": "Restaurant owner in casual attire",
+      "alt": "Owner of Shivanshi Food Point"
+    },
+    {
+      "id": 4,
+      "filename": "buffet-setup.jpg",
+      "description": "Buffet setup with decorative balloons",
+      "alt": "Restaurant buffet setup"
+    },
+    {
+      "id": 5,
+      "filename": "restaurant-logo.jpg",
+      "description": "Restaurant logo with festive decorations",
+      "alt": "Shivanshi Food Point branding"
+    }
+  ]
+} 

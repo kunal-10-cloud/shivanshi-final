@@ -1,0 +1,91 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 20 33% 98%;
+    --foreground: 20 50% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 20 50% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 20 50% 10%;
+
+    --primary: 15 100% 59%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 40 100% 50%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 20 10% 94%;
+    --muted-foreground: 20 40% 40%;
+
+    --accent: 20 10% 94%;
+    --accent-foreground: 20 50% 10%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 20 15% 90%;
+    --input: 20 15% 90%;
+    --ring: 15 100% 59%;
+
+    --radius: 0.5rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display font-bold;
+  }
+
+  .hero-pattern {
+    background-color: #FFFAF0;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23FFC000' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+}
+
+@layer components {
+  .container-custom {
+    @apply container mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  .section-padding {
+    @apply py-16 md:py-24;
+  }
+  
+  .button-primary {
+    @apply bg-spice-500 hover:bg-spice-600 text-white font-medium py-3 px-6 rounded-md transition-all duration-200 shadow-md hover:shadow-lg;
+  }
+  
+  .button-secondary {
+    @apply bg-curry-500 hover:bg-curry-600 text-white font-medium py-3 px-6 rounded-md transition-all duration-200 shadow-md hover:shadow-lg;
+  }
+  
+  .nav-link {
+    @apply font-medium text-foreground hover:text-spice-500 transition-colors duration-200;
+  }
+  
+  .card-hover {
+    @apply transform transition duration-300 hover:scale-105 hover:shadow-xl;
+  }
+  
+  .section-title {
+    @apply text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-center;
+  }
+  
+  .section-subtitle {
+    @apply text-xl text-muted-foreground text-center max-w-3xl mx-auto mb-12;
+  }
+}
