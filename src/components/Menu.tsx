@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 // Menu categories
 export const categories = [
   "All",
-  "Chowmin",
+  "Chowmein",
   "Momos",
   "Manchurian",
   "Pasta",
@@ -20,32 +20,32 @@ export const categories = [
 
 // Menu items based on the restaurant's menu
 export const menuItems = [
-  // Chowmin
+  // Chowmein
   {
     id: 1,
-    name: "Veg Chowmin",
-    description: "Classic vegetable chowmin",
+    name: "Veg Chowmein",
+    description: "Classic vegetable chowmein",
     price: "₹70.00",
     image: "https://jackslobodian.com/wp-content/uploads/2021/03/Vegetable-Vegan-Chow-Mein-2.jpg",
-    category: "Chowmin",
+    category: "Chowmein",
     isVeg: true
   },
   {
     id: 2,
-    name: "Paneer Chowmin",
-    description: "Chowmin with fresh cottage cheese",
+    name: "Paneer Chowmein",
+    description: "Chowmein with fresh cottage cheese",
     price: "₹120.00",
     image: "https://parcelkaro.in/wp-content/uploads/2022/12/Paneer-Chowmien.jpg",
-    category: "Chowmin",
+    category: "Chowmein",
     isVeg: true
   },
   {
     id: 3,
-    name: "Singapuri Chowmin",
-    description: "Singapore-style spicy chowmin",
+    name: "Singapuri Chowmein",
+    description: "Singapore-style spicy chowmein",
     price: "₹100.00",
     image: "https://images.unsplash.com/photo-1585032226651-759b368d7246?q=80&w=3092&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    category: "Chowmin",
+    category: "Chowmein",
     isVeg: true
   },
   // Momos (10 PCS Each)
