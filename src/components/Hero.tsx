@@ -6,6 +6,25 @@ import { useNavigate } from 'react-router-dom';
 const Hero = () => {
   const navigate = useNavigate();
 
+  const handleNavigation = (section: string) => {
+    // Always scroll to top first
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    
+    if (section === 'book-table') {
+      navigate('/');
+      // Then scroll to contact section after a small delay
+      setTimeout(() => {
+        const contactElement = document.getElementById('contact');
+        if (contactElement) {
+          contactElement.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 300);
+      return;
+    }
+    
+    navigate(`/${section}`);
+  };
+
   return (
     <section id="home" className="relative overflow-hidden hero-pattern min-h-screen flex items-center">
       <div className="container-custom flex flex-col lg:flex-row items-center justify-between py-8 lg:py-16">
@@ -27,6 +46,7 @@ const Hero = () => {
             <Button 
               variant="outline" 
               className="border-spice-500 text-spice-500 hover:bg-spice-50 text-base sm:text-lg px-8 py-3"
+              onClick={() => handleNavigation('book-table')}
             >
               Book a Table
             </Button>
@@ -35,13 +55,13 @@ const Hero = () => {
           <div className="flex flex-col sm:flex-row gap-8">
             <div className="flex items-center gap-3">
               <Clock className="text-curry-500" size={24} />
-              <span className="text-base sm:text-lg">Open Daily: 11AM - 10PM</span>
+              <span className="text-base sm:text-lg">Open Daily: 10AM - 10PM</span>
             </div>
             <div className="flex items-center gap-3">
               <MapPin className="text-spice-500" size={24} />
               <div className="flex flex-col">
                 <span className="text-base sm:text-lg">Tehri Visthapit Colony, Subhash Nagar</span>
-                <span className="text-base sm:text-lg">Haridwar, Uttarakhand 249401</span>
+                <span className="text-base sm:text-lg">Haridwar, Uttarakhand 249407</span>
                 <a 
                   href="https://maps.app.goo.gl/tiwW56mARz8hq3Mq7?g_st=aw" 
                   target="_blank" 
@@ -57,8 +77,6 @@ const Hero = () => {
         
         <div className="lg:w-[50%] z-10 relative animate-fade-in mt-12 lg:mt-0">
           <div className="relative">
-            <div className="absolute -top-8 -left-8 w-32 h-32 bg-curry-500 rounded-full opacity-20"></div>
-            <div className="absolute -bottom-8 -right-8 w-40 h-40 bg-spice-500 rounded-full opacity-20"></div>
             <img 
               src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" 
               alt="Interior of Shivanshi Fast Food restaurant with people enjoying meals" 

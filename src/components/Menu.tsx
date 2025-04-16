@@ -276,11 +276,11 @@ export const menuItems = [
 ];
 
 const Menu = () => {
-  const [selectedCategory, setSelectedCategory] = useState("All");
+  const [activeCategory, setActiveCategory] = useState("All");
   const navigate = useNavigate();
 
   const filteredItems = menuItems.filter(
-    item => selectedCategory === "All" || item.category === selectedCategory
+    item => activeCategory === "All" || item.category === activeCategory
   );
 
   const displayedItems = filteredItems.slice(0, 8);
@@ -292,22 +292,29 @@ const Menu = () => {
           Our <span className="text-spice-500">Menu</span>
         </h2>
         
-        <div className="flex flex-wrap gap-2 sm:gap-3 md:gap-4 mb-6 sm:mb-8 justify-center overflow-x-auto pb-2 -mx-4 px-4">
-          <div className="flex space-x-2 sm:space-x-3 min-w-full justify-center">
-            {categories.map((category) => (
-              <button
-                key={category}
-                onClick={() => setSelectedCategory(category)}
-                className={cn(
-                  "px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-xs sm:text-sm font-medium transition-colors whitespace-nowrap",
-                  selectedCategory === category
-                    ? "bg-spice-500 text-white"
-                    : "bg-gray-100 text-gray-600 hover:bg-gray-200"
-                )}
-              >
-                {category}
-              </button>
-            ))}
+        <div className="flex flex-col gap-8">
+          <div className="relative">
+            <div className="flex overflow-x-auto pb-4 -mx-4 px-4 hide-scrollbar">
+              <div className="flex gap-1.5 min-w-full">
+                {categories.map((category) => (
+                  <Button
+                    key={category}
+                    variant="ghost"
+                    className={cn(
+                      "whitespace-nowrap px-3 py-1.5 text-sm",
+                      "rounded-md transition-all duration-200",
+                      "hover:bg-gray-100",
+                      activeCategory === category 
+                        ? "bg-gray-100 text-spice-600 font-medium"
+                        : "text-gray-500 hover:text-gray-700"
+                    )}
+                    onClick={() => setActiveCategory(category)}
+                  >
+                    {category}
+                  </Button>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
 

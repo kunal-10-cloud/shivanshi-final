@@ -1,56 +1,75 @@
 import React from 'react';
-import { Button } from "@/components/ui/button";
-import { MapPin, Phone, Mail, Clock, Instagram, Facebook, Twitter } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock } from 'lucide-react';
+import { cn } from '@/lib/utils';
 
-const Contact = () => {
+interface ContactProps {
+  highlightedContact?: string | null;
+}
+
+const Contact: React.FC<ContactProps> = ({ highlightedContact }) => {
   return (
-    <section id="contact" className="py-16">
-      <div className="container-custom">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold mb-4">Get in Touch</h2>
-          <p className="text-muted-foreground">We'd love to hear from you</p>
-        </div>
+    <section id="contact" className="min-h-screen flex items-center py-8 sm:py-12 lg:py-16">
+      <div className="container-custom px-4 sm:px-6">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-spice-600 mb-4">
+              Get in Touch
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Have questions or want to book a table? We'd love to hear from you!
+            </p>
+          </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-          <div className="bg-white rounded-lg shadow-lg p-6">
-            <h3 className="text-xl font-semibold mb-6">Contact Information</h3>
-            <div className="space-y-6">
-              <div className="flex items-center gap-4">
-                <Phone className="text-spice-500" size={24} />
-                <div>
-                  <p className="font-medium">Phone</p>
-                  <p className="text-muted-foreground">+91 1234567890</p>
+          <div className="max-w-2xl mx-auto">
+            <div className="bg-white rounded-2xl shadow-lg p-6 sm:p-8">
+              <h3 className="text-xl sm:text-2xl font-display font-bold text-spice-600 mb-6">
+                Contact Information
+              </h3>
+              <div className="space-y-6">
+                <div className={cn(
+                  "flex items-start space-x-4 p-4 rounded-lg transition-all duration-300",
+                  highlightedContact === 'phone' ? "bg-spice-50 border border-spice-200" : ""
+                )}>
+                  <div className="bg-spice-50 p-3 rounded-full">
+                    <Phone className="w-5 h-5 sm:w-6 sm:h-6 text-spice-600" />
+                  </div>
+                  <div>
+                    <h4 className="font-medium text-gray-900">Phone Numbers</h4>
+                    <p className="text-gray-600">+91 8171156028</p>
+                    <p className="text-gray-600">+91 8006630707</p>
+                  </div>
                 </div>
-              </div>
-              <div className="flex items-center gap-4">
-                <Mail className="text-spice-500" size={24} />
-                <div>
-                  <p className="font-medium">Email</p>
-                  <p className="text-muted-foreground">info@shivanshiflavors.com</p>
-                </div>
-              </div>
-              <div className="flex items-center gap-4">
-                <MapPin className="text-spice-500" size={24} />
-                <div>
-                  <p className="font-medium">Address</p>
-                  <p className="text-muted-foreground">Tehri Visthapit Colony, Subhash Nagar</p>
-                  <p className="text-muted-foreground">Haridwar, Uttarakhand 249401</p>
-                </div>
-              </div>
-            </div>
 
-            <div className="mt-8">
-              <h4 className="text-lg font-semibold mb-4">Follow Us</h4>
-              <div className="flex gap-4">
-                <a href="#" className="text-spice-500 hover:text-spice-600">
-                  <Facebook size={24} />
-                </a>
-                <a href="#" className="text-spice-500 hover:text-spice-600">
-                  <Instagram size={24} />
-                </a>
-                <a href="#" className="text-spice-500 hover:text-spice-600">
-                  <Twitter size={24} />
-                </a>
+                <div className="flex items-start space-x-4 p-4 rounded-lg">
+                  <div className="bg-spice-50 p-3 rounded-full">
+                    <Mail className="w-5 h-5 sm:w-6 sm:h-6 text-spice-600" />
+                  </div>
+                  <div>
+                    <h4 className="font-medium text-gray-900">Email</h4>
+                    <p className="text-gray-600 break-all">info@shivanshifastfood.com</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start space-x-4 p-4 rounded-lg">
+                  <div className="bg-spice-50 p-3 rounded-full">
+                    <MapPin className="w-5 h-5 sm:w-6 sm:h-6 text-spice-600" />
+                  </div>
+                  <div>
+                    <h4 className="font-medium text-gray-900">Address</h4>
+                    <p className="text-gray-600">Tehri Visthapit Colony, Subhash Nagar</p>
+                    <p className="text-gray-600">Haridwar, Uttarakhand 249407</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start space-x-4 p-4 rounded-lg">
+                  <div className="bg-spice-50 p-3 rounded-full">
+                    <Clock className="w-5 h-5 sm:w-6 sm:h-6 text-spice-600" />
+                  </div>
+                  <div>
+                    <h4 className="font-medium text-gray-900">Opening Hours</h4>
+                    <p className="text-gray-600">Open Daily: 10AM - 10PM</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

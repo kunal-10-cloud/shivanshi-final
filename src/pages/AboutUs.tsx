@@ -1,6 +1,7 @@
 import React from 'react';
-import { Star } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+import { ArrowLeft, Clock, MapPin, Phone, Heart, Leaf, Award, Users } from 'lucide-react';
+import { useNavigate, Link } from 'react-router-dom';
+import { Button } from '@/components/ui/button';
 
 const testimonials = [
   {
@@ -30,75 +31,141 @@ const AboutUs = () => {
   const navigate = useNavigate();
 
   return (
-    <main className="pt-20 min-h-screen bg-gradient-to-b from-white to-gray-50">
-      <div className="container-custom py-12">
-        <button 
-          onClick={() => navigate('/')}
-          className="absolute top-24 right-4 text-spice-600 hover:text-spice-700 font-medium flex items-center gap-1 text-sm"
-        >
-          <span>← Back</span>
-        </button>
-        {/* About Us Section */}
-        <section className="mb-20">
-          <h1 className="text-4xl md:text-5xl font-display font-bold mb-8">
-            About <span className="text-spice-500">Us</span>
-          </h1>
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6">
-              <p className="text-gray-600 leading-relaxed">
-                Welcome to Shivanshi Fast Food, Haridwar's premier destination for delicious vegetarian cuisine. Since our establishment, we've been serving the community with love and passion for food.
-              </p>
-              <p className="text-gray-600 leading-relaxed">
-                Our restaurant specializes in a wide variety of dishes, from mouth-watering momos to delectable pasta. We take pride in using the freshest ingredients and maintaining the highest standards of quality and hygiene.
-              </p>
-              <p className="text-gray-600 leading-relaxed">
-                At Shivanshi Fast Food, we believe in creating not just meals, but memorable dining experiences. Our dedicated team works tirelessly to ensure every dish that leaves our kitchen meets our high standards of taste and presentation.
-              </p>
-            </div>
-            <div className="bg-spice-50 p-8 rounded-2xl space-y-6">
-              <div className="space-y-2">
-                <h3 className="text-xl font-semibold text-spice-600">Location</h3>
-                <p className="text-gray-600">123 Main Street, Haridwar, Uttarakhand</p>
-              </div>
-              <div className="space-y-2">
-                <h3 className="text-xl font-semibold text-spice-600">Hours</h3>
-                <p className="text-gray-600">Monday - Sunday: 11:00 AM - 10:00 PM</p>
-              </div>
-              <div className="space-y-2">
-                <h3 className="text-xl font-semibold text-spice-600">Contact</h3>
-                <p className="text-gray-600">Phone: +91 8171156028, 8006630707</p>
+    <div className="min-h-screen bg-gradient-to-b from-white to-gray-50">
+      <main className="pt-20">
+        <div className="container-custom px-4 sm:px-6 py-6 sm:py-8 lg:py-12">
+          <div className="max-w-6xl mx-auto">
+            {/* Header Section */}
+            <div className="relative mb-8 sm:mb-12">
+              <Link to="/" className="fixed top-24 right-4 z-50">
+                <Button variant="ghost" className="flex items-center gap-2 text-foreground hover:text-spice-500">
+                  <ArrowLeft size={16} />
+                  Back
+                </Button>
+              </Link>
+              
+              <div className="text-center max-w-3xl mx-auto pt-8 sm:pt-0">
+                <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-display font-bold text-spice-600 mb-4 sm:mb-6">
+                  About Us
+                </h1>
+                <p className="text-lg sm:text-xl text-gray-600">
+                  Bringing the authentic flavors of Haridwar to your plate since 2020
+                </p>
               </div>
             </div>
-          </div>
-        </section>
 
-        {/* Testimonials Section */}
-        <section className="pt-16" id="testimonials">
-          <h2 className="text-3xl md:text-4xl font-display font-bold text-center mb-12">
-            Customer <span className="text-spice-500">Testimonials</span>
-          </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {testimonials.map((testimonial) => (
-              <div 
-                key={testimonial.id}
-                className="bg-white p-6 rounded-2xl shadow-md hover:shadow-lg transition-shadow duration-300"
-              >
-                <div className="flex items-center mb-4">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
-                  ))}
+            {/* Main Content */}
+            <div className="space-y-12 sm:space-y-16">
+              {/* Story Section */}
+              <section className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 items-start">
+                <div className="space-y-4 sm:space-y-6">
+                  <h2 className="text-2xl sm:text-3xl font-display font-bold text-spice-600">Our Story</h2>
+                  <p className="text-base sm:text-lg text-gray-600 leading-relaxed">
+                    Welcome to Shivanshi Fast Food, where we bring the authentic flavors of Haridwar to your plate. 
+                    Our journey began with a simple mission: to serve delicious, high-quality fast food that captures 
+                    the essence of Indian street food culture.
+                  </p>
+                  <p className="text-base sm:text-lg text-gray-600 leading-relaxed">
+                    Founded in the heart of Haridwar, Shivanshi Fast Food has been serving the community with 
+                    love and dedication. We take pride in using fresh, locally-sourced ingredients to create 
+                    dishes that are both traditional and innovative.
+                  </p>
                 </div>
-                <p className="text-gray-600 mb-4 italic">"{testimonial.comment}"</p>
-                <div className="flex justify-between items-center">
-                  <p className="font-semibold text-gray-800">{testimonial.name}</p>
-                  <p className="text-sm text-gray-500">{testimonial.date}</p>
+                <div className="bg-spice-50 rounded-xl sm:rounded-2xl p-4 sm:p-8 shadow-sm">
+                  <div className="grid grid-cols-2 gap-4 sm:gap-6">
+                    <div className="bg-white p-4 sm:p-6 rounded-lg sm:rounded-xl shadow-sm">
+                      <Heart className="w-6 h-6 sm:w-8 sm:h-8 text-spice-500 mb-2 sm:mb-4" />
+                      <h3 className="font-display font-bold text-base sm:text-lg text-gray-900 mb-1 sm:mb-2">Passion</h3>
+                      <p className="text-sm sm:text-base text-gray-600">Cooking with love and dedication</p>
+                    </div>
+                    <div className="bg-white p-4 sm:p-6 rounded-lg sm:rounded-xl shadow-sm">
+                      <Leaf className="w-6 h-6 sm:w-8 sm:h-8 text-spice-500 mb-2 sm:mb-4" />
+                      <h3 className="font-display font-bold text-base sm:text-lg text-gray-900 mb-1 sm:mb-2">Freshness</h3>
+                      <p className="text-sm sm:text-base text-gray-600">Locally-sourced ingredients</p>
+                    </div>
+                    <div className="bg-white p-4 sm:p-6 rounded-lg sm:rounded-xl shadow-sm">
+                      <Award className="w-6 h-6 sm:w-8 sm:h-8 text-spice-500 mb-2 sm:mb-4" />
+                      <h3 className="font-display font-bold text-base sm:text-lg text-gray-900 mb-1 sm:mb-2">Quality</h3>
+                      <p className="text-sm sm:text-base text-gray-600">Consistent excellence</p>
+                    </div>
+                    <div className="bg-white p-4 sm:p-6 rounded-lg sm:rounded-xl shadow-sm">
+                      <Users className="w-6 h-6 sm:w-8 sm:h-8 text-spice-500 mb-2 sm:mb-4" />
+                      <h3 className="font-display font-bold text-base sm:text-lg text-gray-900 mb-1 sm:mb-2">Community</h3>
+                      <p className="text-sm sm:text-base text-gray-600">Serving with care</p>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            ))}
+              </section>
+
+              {/* Values Section */}
+              <section className="bg-spice-50 rounded-xl sm:rounded-2xl p-6 sm:p-8 lg:p-12">
+                <h2 className="text-2xl sm:text-3xl font-display font-bold text-spice-600 text-center mb-8 sm:mb-12">Our Values</h2>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
+                  <div className="bg-white p-4 sm:p-6 rounded-lg sm:rounded-xl shadow-sm">
+                    <h3 className="font-display font-bold text-lg sm:text-xl text-gray-900 mb-2 sm:mb-4">Quality First</h3>
+                    <p className="text-sm sm:text-base text-gray-600">We use only the finest ingredients and maintain the highest standards in food preparation.</p>
+                  </div>
+                  <div className="bg-white p-4 sm:p-6 rounded-lg sm:rounded-xl shadow-sm">
+                    <h3 className="font-display font-bold text-lg sm:text-xl text-gray-900 mb-2 sm:mb-4">Authentic Taste</h3>
+                    <p className="text-sm sm:text-base text-gray-600">Our recipes are carefully crafted to bring you the true flavors of Indian street food.</p>
+                  </div>
+                  <div className="bg-white p-4 sm:p-6 rounded-lg sm:rounded-xl shadow-sm">
+                    <h3 className="font-display font-bold text-lg sm:text-xl text-gray-900 mb-2 sm:mb-4">Customer Care</h3>
+                    <p className="text-sm sm:text-base text-gray-600">Your satisfaction is our priority. We strive to provide excellent service every time.</p>
+                  </div>
+                  <div className="bg-white p-4 sm:p-6 rounded-lg sm:rounded-xl shadow-sm">
+                    <h3 className="font-display font-bold text-lg sm:text-xl text-gray-900 mb-2 sm:mb-4">Clean & Hygienic</h3>
+                    <p className="text-sm sm:text-base text-gray-600">We maintain strict hygiene standards to ensure your safety and well-being.</p>
+                  </div>
+                </div>
+              </section>
+
+              {/* Contact Section */}
+              <section>
+                <h2 className="text-2xl sm:text-3xl font-display font-bold text-spice-600 text-center mb-8 sm:mb-12">Get in Touch</h2>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
+                  <div className="bg-white p-4 sm:p-6 lg:p-8 rounded-lg sm:rounded-xl shadow-sm">
+                    <div className="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
+                      <div className="bg-spice-50 p-2 sm:p-3 rounded-full">
+                        <Phone className="w-5 h-5 sm:w-6 sm:h-6 text-spice-500" />
+                      </div>
+                      <h3 className="font-display font-bold text-lg sm:text-xl text-gray-900">Phone Numbers</h3>
+                    </div>
+                    <div className="space-y-1 sm:space-y-2">
+                      <p className="text-sm sm:text-base text-gray-600 break-all">+91 8171156028</p>
+                      <p className="text-sm sm:text-base text-gray-600 break-all">+91 8006630707</p>
+                    </div>
+                  </div>
+                  
+                  <div className="bg-white p-4 sm:p-6 lg:p-8 rounded-lg sm:rounded-xl shadow-sm">
+                    <div className="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
+                      <div className="bg-spice-50 p-2 sm:p-3 rounded-full">
+                        <MapPin className="w-5 h-5 sm:w-6 sm:h-6 text-spice-500" />
+                      </div>
+                      <h3 className="font-display font-bold text-lg sm:text-xl text-gray-900">Address</h3>
+                    </div>
+                    <div className="space-y-1 sm:space-y-2">
+                      <p className="text-sm sm:text-base text-gray-600 break-words">Tehri Visthapit Colony, Subhash Nagar</p>
+                      <p className="text-sm sm:text-base text-gray-600 break-words">Haridwar, Uttarakhand 249407</p>
+                    </div>
+                  </div>
+                  
+                  <div className="bg-white p-4 sm:p-6 lg:p-8 rounded-lg sm:rounded-xl shadow-sm">
+                    <div className="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
+                      <div className="bg-spice-50 p-2 sm:p-3 rounded-full">
+                        <Clock className="w-5 h-5 sm:w-6 sm:h-6 text-spice-500" />
+                      </div>
+                      <h3 className="font-display font-bold text-lg sm:text-xl text-gray-900">Opening Hours</h3>
+                    </div>
+                    <p className="text-sm sm:text-base text-gray-600">Open Daily: 10AM - 10PM</p>
+                  </div>
+                </div>
+              </section>
+            </div>
           </div>
-        </section>
-      </div>
-    </main>
+        </div>
+      </main>
+    </div>
   );
 };
 

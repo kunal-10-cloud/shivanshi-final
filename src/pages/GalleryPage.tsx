@@ -62,49 +62,50 @@ const GalleryPage = () => {
       navigate('/');
       return;
     }
-    navigate(`/?section=${section}`);
   };
 
   return (
-    <main className="pt-20 min-h-screen bg-gradient-to-b from-white to-gray-50">
-      <div className="container-custom py-12">
-        <button 
-          onClick={() => handleNavigation('home')}
-          className="absolute top-24 right-4 text-spice-600 hover:text-spice-700 font-medium flex items-center gap-1 text-sm"
-        >
-          <span>← Back</span>
-        </button>
-        <h1 className="text-4xl md:text-5xl font-display font-bold text-center sm:text-left mb-8">
-          Our <span className="text-spice-500">Gallery</span>
-        </h1>
-        <p className="text-gray-600 text-center mb-12 max-w-2xl mx-auto">
-          Explore our vibrant collection of moments, celebrations, and delicious creations at Shivanshi Fast Food.
-        </p>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {galleryImages.map((image) => (
-            <div 
-              key={image.id} 
-              className="relative overflow-hidden rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 group cursor-pointer"
-              onClick={() => setSelectedImage(image.src)}
-            >
-              <img
-                src={image.src}
-                alt={image.alt}
-                className="w-full h-[300px] object-cover transform group-hover:scale-105 transition-transform duration-500"
-                loading="lazy"
-                onError={(e) => {
-                  console.error(`Error loading image: ${image.src}`);
-                  e.currentTarget.style.display = 'none';
-                }}
-              />
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6">
-                <p className="text-white text-lg font-medium">{image.description}</p>
+    <div className="min-h-screen bg-gradient-to-b from-white to-gray-50">
+      <main className="pt-20">
+        <div className="container-custom py-12">
+          <button 
+            onClick={() => handleNavigation('home')}
+            className="absolute top-24 right-4 text-spice-600 hover:text-spice-700 font-medium flex items-center gap-1 text-sm"
+          >
+            <span>← Back</span>
+          </button>
+          <h1 className="text-4xl md:text-5xl font-display font-bold text-center sm:text-left mb-8">
+            Our <span className="text-spice-500">Gallery</span>
+          </h1>
+          <p className="text-gray-600 text-center mb-12 max-w-2xl mx-auto">
+            Explore our vibrant collection of moments, celebrations, and delicious creations at Shivanshi Fast Food.
+          </p>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {galleryImages.map((image) => (
+              <div 
+                key={image.id} 
+                className="relative overflow-hidden rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 group cursor-pointer"
+                onClick={() => setSelectedImage(image.src)}
+              >
+                <img
+                  src={image.src}
+                  alt={image.alt}
+                  className="w-full h-[300px] object-cover transform group-hover:scale-105 transition-transform duration-500"
+                  loading="lazy"
+                  onError={(e) => {
+                    console.error(`Error loading image: ${image.src}`);
+                    e.currentTarget.style.display = 'none';
+                  }}
+                />
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6">
+                  <p className="text-white text-lg font-medium">{image.description}</p>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-      </div>
+      </main>
 
       {/* Modal for full-size image */}
       {selectedImage && (
@@ -131,7 +132,7 @@ const GalleryPage = () => {
           </div>
         </div>
       )}
-    </main>
+    </div>
   );
 };
 

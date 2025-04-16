@@ -7,6 +7,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [highlightedContact, setHighlightedContact] = useState<string | null>(null);
   const location = useLocation();
   const navigate = useNavigate();
   const isHomePage = location.pathname === '/';
@@ -34,6 +35,9 @@ const Navbar = () => {
   const handleNavigation = (section: string) => {
     setIsOpen(false);
     
+    // Always scroll to top first
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    
     if (section === 'gallery') {
       navigate('/gallery');
       return;
@@ -53,11 +57,33 @@ const Navbar = () => {
       navigate('/');
       return;
     }
+
+    if (section === 'contact' || section === 'book-table') {
+      // Always navigate to home page first
+      navigate('/');
+      // Then scroll to contact section after a small delay
+      setTimeout(() => {
+        const contactElement = document.getElementById('contact');
+        if (contactElement) {
+          contactElement.scrollIntoView({ behavior: 'smooth' });
+          // If it's a book-table action, highlight the contact details
+          if (section === 'book-table') {
+            setHighlightedContact('phone');
+            // Remove highlight after 3 seconds
+            setTimeout(() => setHighlightedContact(null), 3000);
+          }
+        }
+      }, 100);
+      return;
+    }
     
     if (isHomePage) {
       const element = document.getElementById(section);
       if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
+        // Small delay to ensure page has scrolled to top first
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }, 100);
       }
     } else {
       navigate(`/?section=${section}`);
@@ -93,20 +119,36 @@ const Navbar = () => {
               <button onClick={() => handleNavigation('about')} className="nav-link text-sm sm:text-base px-3 py-2 hover:text-spice-500 transition-colors">About</button>
               <button onClick={() => handleNavigation('menu')} className="nav-link text-sm sm:text-base px-3 py-2 hover:text-spice-500 transition-colors">Menu</button>
               <button onClick={() => handleNavigation('contact')} className="nav-link text-sm sm:text-base px-3 py-2 hover:text-spice-500 transition-colors">Contact</button>
-              <Button className="ml-4 bg-spice-500 text-white hover:bg-spice-600 transition-colors flex items-center gap-2 text-sm sm:text-base px-4 py-2 rounded-full">
+              <a 
+                href="https://www.zomato.com/haridwar/shivanshi-fast-food-ranipur" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="ml-4 bg-spice-500 text-white hover:bg-spice-600 transition-colors flex items-center gap-2 text-sm sm:text-base px-4 py-2 rounded-full"
+              >
                 <ShoppingBag size={18} />
                 Order Now
-              </Button>
+              </a>
             </div>
 
             {/* Mobile Navigation Toggle */}
-            <button
-              className="lg:hidden text-gray-600 hover:text-spice-500 focus:outline-none"
-              onClick={() => setIsOpen(!isOpen)}
-              aria-label="Toggle menu"
-            >
-              {isOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
+            <div className="lg:hidden flex items-center gap-4">
+              <a 
+                href="https://www.zomato.com/haridwar/shivanshi-fast-food-ranipur" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="bg-spice-500 text-white hover:bg-spice-600 transition-colors flex items-center gap-2 text-sm px-3 py-2 rounded-full"
+              >
+                <ShoppingBag size={18} />
+                Order
+              </a>
+              <button
+                className="text-gray-600 hover:text-spice-500 focus:outline-none"
+                onClick={() => setIsOpen(!isOpen)}
+                aria-label="Toggle menu"
+              >
+                {isOpen ? <X size={24} /> : <Menu size={24} />}
+              </button>
+            </div>
           </div>
         </div>
       </nav>
@@ -171,16 +213,9 @@ const Navbar = () => {
 
           {/* Footer */}
           <div className="p-4 border-t bg-white">
-            <Button 
-              className="w-full bg-spice-500 text-white hover:bg-spice-600 transition-colors flex items-center justify-center gap-2 text-base px-4 py-3 rounded-lg"
-              onClick={() => {
-                setIsOpen(false);
-                // Add order handling logic here
-              }}
-            >
-              <ShoppingBag size={20} />
-              Order Now
-            </Button>
+            <div className="text-center text-sm text-gray-500">
+              © 2024 Shivanshi Fast Food. All rights reserved.
+            </div>
           </div>
         </div>
       </div>
