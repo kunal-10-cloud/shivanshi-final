@@ -78,7 +78,7 @@ const Hero = () => {
         <div className="lg:w-[50%] z-10 relative animate-fade-in mt-12 lg:mt-0">
           <div className="relative">
             <img 
-              src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" 
+              src="./public/images/ChatGPT Image Jun 4, 2025, 05_22_51 PM.png" 
               alt="Interior of Shivanshi Fast Food restaurant with people enjoying meals" 
               className="rounded-2xl shadow-2xl object-cover h-[500px] lg:h-[600px] xl:h-[700px] w-full"
             />
